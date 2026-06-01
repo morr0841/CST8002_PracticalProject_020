@@ -10,5 +10,5 @@ with open(csv_file_path, mode ='r') as file:
     prey = Prey(*row)
     data_list.append(prey)
 
-for row in data_list:
-  print(row)
+for prey in data_list:
+  print(prey)
