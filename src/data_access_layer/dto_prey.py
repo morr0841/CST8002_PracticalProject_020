@@ -16,6 +16,6 @@ class Prey:
         self.astax = astax
         self.canthax = canthax
         self.retinol = retinol
-
+        
     def __str__(self):
-        return f"{self.year}, {self.species}, {self.common_name}, {self.study_site}, {self.ass_community}, {self.lat}, {self.long}, {self.delta13c}, {self.delta13c_c}, {self.delta15n}, {self.delta15nc}, {self.tp}, {self.c_n}, {self.astax}, {self.canthax},  {self.retinol}"
+        return f"\tYear: {self.year}, Species: {self.species}, Common name: {self.common_name}, Study site: {self.study_site}, Associated Community: {self.ass_community}\n\t\tLatitude: {self.lat}, Longitude: {self.long}, delta13C: {self.delta13c}, delta13Cc: {self.delta13c_c}, delta15N: {self.delta15n}, delta15Nc: {self.delta15nc}\n\t\tTP: {self.tp}, C:N :{self.c_n}, Astaxanthin: {self.astax}, Canthaxanthin: {self.canthax}, Retinol: {self.retinol}"
