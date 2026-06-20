@@ -22,9 +22,9 @@ References used:
 """
 
 import csv
-from data_access_layer.dto_prey import Prey
+from model.dto_prey import Prey
 
-csv_file_path = 'src/Prey collection & analysis - raw data.csv'
+csv_file_path = 'src/data/Prey collection & analysis - raw data.csv'
 signature = 'Program by: Elairis Morrow'
 
 try: 
