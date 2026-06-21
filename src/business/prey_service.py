@@ -14,9 +14,11 @@ class Prey_Service:
     def save_rows(self):
         self.csv_rw.write_csv(self.all_rows)
 
+    def create_row(self, prey):
+        self.all_rows.append(prey)
 
-    #TODO create row (need UUID)
+    def update_row(self, row_number, updated_prey):
+        self.all_rows[row_number] = updated_prey
 
-    #TODO update row (need UUID)
-
-    #TODO delete row (need UUID)
+    def delete_row(self, row_number):
+        del self.all_rows[row_number]
