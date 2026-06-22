@@ -68,8 +68,13 @@ class Menu:
                 self.prey_service.save_rows() #success message is in save_rows method
                 
             elif choice == '3': #Display single record
-                #TODO 
-                pass
+                select_row = int(input("Enter row to display: "))
+                try:
+                    print_row = self.prey_service.get_row(select_row)
+                    print("Row", select_row, print_row)
+                except Exception as e:
+                    input("Invalid row number. Press enter to return to menu.")
+                    continue
             elif choice == '4': #Display all records
                 print_rows = self.prey_service.get_all_rows()
                 count = 1
@@ -83,7 +88,7 @@ class Menu:
                 #TODO 
                 pass
             elif choice == '7': #Delete a record
-                select_row = int(input("Enter row to delete (): "))
+                select_row = int(input("Enter row to delete: "))
                 try:
                     self.prey_service.delete_row(select_row)
                 except Exception as e:
