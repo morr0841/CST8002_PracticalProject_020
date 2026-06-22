@@ -3,6 +3,7 @@
 """
 
 import csv
+import uuid
 from model.dto_prey import Prey
 # move to business layer: csv_file_path = 'src/data/Prey collection & analysis - raw data.csv'
 class CsvRW:
@@ -33,10 +34,11 @@ def read_csv(self):
 #TODO test that this works im not sure i did this right tbh
 
 def write_csv(self, all_rows):
+  new_csv_file = f"{uuid.uuid4()}.csv"
   data_list = ["year", "species", "common_name", "study_site", "ass_community", "lat", "longi", 
                  "delta13c", "delta13c_c", "delta15n", "delta15nc", "tp", "c_n", "astax", "canthax", "retinol"]
   try:
-    with open(self.csv_file_path, 'w', newline='') as file:
+    with open(new_csv_file, 'w', newline='') as file:
       csv_writer = csv.writer(file)
       csv_writer.writerow(data_list)
       for prey in all_rows:
@@ -58,7 +60,6 @@ def write_csv(self, all_rows):
             prey.canthax,
             prey.retinol
         ])
-  except FileNotFoundError: #exception specifically for the CSV file not being found
-    print("File not found.")
+    print(f"Saved successfully. New CSV file: {new_csv_file}")
   except Exception as e: #exception with error reason
-    print(f"Error: {e}")
+    print(f"Error writing new file: {e}")
