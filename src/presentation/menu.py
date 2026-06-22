@@ -64,28 +64,32 @@ class Menu:
                 self.prey_service.load_rows()
                 print("Loaded data from original CSV file.")
                 
-            elif choice == '2':
-                self.prey_service.save_rows()
+            elif choice == '2': #Write data to CSV
+                self.prey_service.save_rows() #success message is in save_rows method
                 
-            elif choice == '3':
-                #TODO Display single record
+            elif choice == '3': #Display single record
+                #TODO 
                 pass
-            elif choice == '4':
+            elif choice == '4': #Display all records
                 print_rows = self.prey_service.get_all_rows()
                 count = 1
                 for prey in print_rows:
                     print("Row", count, prey)
-
-            elif choice == '5':
-                #TODO Create new record
+                
+            elif choice == '5': #Create new record
+                #TODO 
                 pass
-            elif choice == '6':
-                #TODO Edit a record
+            elif choice == '6':#Edit a record
+                #TODO 
                 pass
-            elif choice == '7':
-                #TODO Delete a record
-                pass
-            elif choice == '8':
+            elif choice == '7': #Delete a record
+                select_row = int(input("Enter row to delete (): "))
+                try:
+                    self.prey_service.delete_row(select_row)
+                except Exception as e:
+                    input("Invalid row number. Press enter to return to menu.")
+                    continue
+            elif choice == '8': #Exit the program
                 print("Exiting program.")
                 break
             else:
