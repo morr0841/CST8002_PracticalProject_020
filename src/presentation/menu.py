@@ -71,8 +71,11 @@ class Menu:
                 #TODO Display single record
                 pass
             elif choice == '4':
-                #TODO Display all records
-                pass
+                print_rows = self.prey_service.get_all_rows()
+                count = 1
+                for prey in print_rows:
+                    print("Row", count, prey)
+
             elif choice == '5':
                 #TODO Create new record
                 pass
