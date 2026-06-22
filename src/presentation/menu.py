@@ -63,9 +63,10 @@ class Menu:
             if choice == '1': #Reloads the dataset from a CSV file
                 self.prey_service.load_rows()
                 print("Loaded data from original CSV file.")
+                
             elif choice == '2':
-                #TODO Write current data to CSV
-                pass
+                self.prey_service.save_rows()
+                
             elif choice == '3':
                 #TODO Display single record
                 pass
