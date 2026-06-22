@@ -20,16 +20,16 @@ import os
 class Menu:
     def __init__(self):
         self.prey_service = Prey_Service()
-        
-    # Function to clear the console screen
-    def clear_screen(self):
+        self.prey_service.load_rows()
+    
+    def clear_screen(self): # Function to clear the console screen
         """
         Clears the console.
         """
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    # Function to display the menu
-    def display_menu(self):
+    
+    def display_menu(self): # Function to display the menu
         """
         Prints the menu to the console.
 
@@ -58,11 +58,11 @@ class Menu:
         while True:
             self.clear_screen()
             self.display_menu()
-            choice = input("\nEnter your choice(1-3): ")
+            choice = input("\nEnter your choice(1-8): ")
 
-            if choice == '1':
-                #TODO Reload dataset from CSV
-                pass
+            if choice == '1': #Reloads the dataset from a CSV file
+                self.prey_service.load_rows()
+                print("Loaded data from original CSV file.")
             elif choice == '2':
                 #TODO Write current data to CSV
                 pass

@@ -19,11 +19,11 @@ def read_csv(self):
         prey = Prey(*row)
         data_list.append(prey)
   
-    count = 1 #counter for printing limited rows
+    count = 0 #counter for printing limited rows
     for prey in data_list: #prints DTO objects and increments counter
       print("Row", count, prey)
       count += 1
-      if count > 5:
+      if count >= 100:
        break
   except FileNotFoundError: #exception specifically for the CSV file not being found
     print("File not found.")
