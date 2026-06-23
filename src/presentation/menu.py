@@ -81,6 +81,7 @@ class Menu:
                 count = 1
                 for prey in print_rows:
                     print("Row", count, prey)
+                    count += 1
                 
             elif choice == '5': #Create new record
                 print("Creating new record:")
@@ -107,7 +108,7 @@ class Menu:
             
             elif choice == '6':#Edit a record
                 #TODO 
-                select_row = int(input("Enter row to update: "))
+                select_row = input("Enter row to update: ")
                 try:
                     self.prey_service.update_row(select_row)
                     print(f"Updating record {select_row}: \n")
@@ -135,7 +136,6 @@ class Menu:
                 except Exception as e:
                     input("Invalid row number. Press enter to return to menu.")
                     continue
-                pass
             elif choice == '7': #Delete a record
                 select_row = int(input("Enter row to delete: "))
                 try:

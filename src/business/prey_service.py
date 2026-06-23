@@ -1,9 +1,10 @@
 from persistence.csv_rw import CsvRW
 
 class Prey_Service:
+    
     def __init__(self):
         self.all_rows = []
-        self.csv_rw = CsvRW()
+        self.csv_rw = CsvRW("src/data/Prey collection & analysis - raw data.csv")
 
     def load_rows(self):
         self.all_rows = self.csv_rw.read_csv()
