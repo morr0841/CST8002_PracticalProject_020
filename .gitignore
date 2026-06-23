@@ -1,2 +1,2 @@
 *.pyc
-src/model/__pycache__/
+/src/model/__pycache__
