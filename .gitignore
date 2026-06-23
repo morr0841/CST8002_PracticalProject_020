@@ -1,7 +1,1 @@
-src/presentation/__pycache__/menu.cpython-312.pyc
-src/business/__pycache__/prey_service.cpython-312.pyc
-src/model/__pycache__/dto_prey.cpython-312.pyc
-src/persistence/__pycache__/csv_rw.cpython-312.pyc
-src/model/__pycache__/dto_prey.cpython-312.pyc
-src/model/__pycache__/dto_prey.cpython-312.pyc
-src/model/__pycache__/dto_prey.cpython-312.pyc
+*.pyc
