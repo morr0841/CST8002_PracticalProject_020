@@ -15,6 +15,7 @@ This program allows a user to:
 """
 
 from business.prey_service import Prey_Service
+from model.dto_prey import Prey
 import os
 
 class Menu:
@@ -82,24 +83,23 @@ class Menu:
                     print("Row", count, prey)
                 
             elif choice == '5': #Create new record
-                #,Canthaxanthin(mg/kg),
-                print("Creating new record.\n")
-                year = input("Enter Year: ")
-                species = input("Enter Species: ")
-                common_name = input("Enter Common Name: ")
-                study_site = input("Enter Study Site: ")
-                ass_community = input("Enter Associate Community: ")
-                lat = input("Enter Latitude: ")
-                longi = input("Eneter Longitude: ")
-                delta13c = input("Enter Delta13C value: ")
-                delta13c_c = input("Enter Delta13Cc value: ")
-                delta15n = input("Enter Delta15N value: ")
-                delta15Nc = input("Enter Delta15Nc value: ")
-                tp = input("Enter TP value: ")
-                c_n = input("Enter C:N value: ")
-                astax = input("Enter Astaxanthin(mg/kg) value: ")
-                canthax = input("Enter Canthaxanthin(mg/kg) value: ")
-                retinol = input("Enter Retinol(mg/kg) value: ")
+                print("Creating new record:")
+                year = input("\nEnter Year: ")
+                species = input("\nEnter Species: ")
+                common_name = input("vEnter Common Name: ")
+                study_site = input("\nEnter Study Site: ")
+                ass_community = input("\nEnter Associate Community: ")
+                lat = input("vEnter Latitude: ")
+                longi = input("\nEneter Longitude: ")
+                delta13c = input("\nEnter Delta13C value: ")
+                delta13c_c = input("\nEnter Delta13Cc value: ")
+                delta15n = input("\nEnter Delta15N value: ")
+                delta15Nc = input("\nEnter Delta15Nc value: ")
+                tp = input("\nEnter TP value: ")
+                c_n = input("\nEnter C:N value: ")
+                astax = input("\nEnter Astaxanthin(mg/kg) value: ")
+                canthax = input("\nEnter Canthaxanthin(mg/kg) value: ")
+                retinol = input("\nEnter Retinol(mg/kg) value: ")
                 
                 new_prey = Prey(year, species, common_name, study_site, ass_community, lat, longi, delta13c, delta13c_c, 
                                 delta15n, delta15Nc, tp, c_n, astax, canthax, retinol)
@@ -107,6 +107,34 @@ class Menu:
             
             elif choice == '6':#Edit a record
                 #TODO 
+                select_row = int(input("Enter row to update: "))
+                try:
+                    self.prey_service.update_row(select_row)
+                    print(f"Updating record {select_row}: \n")
+                    year = input("\nEnter Year: ")
+                    species = input("Enter Species: ")
+                    common_name = input("\nEnter Common Name: ")
+                    study_site = input("\nEnter Study Site: ")
+                    ass_community = input("\nEnter Associate Community: ")
+                    lat = input("\nEnter Latitude: ")
+                    longi = input("\nEneter Longitude: ")
+                    delta13c = input("\nEnter Delta13C value: ")
+                    delta13c_c = input("\nEnter Delta13Cc value: ")
+                    delta15n = input("\nEnter Delta15N value: ")
+                    delta15Nc = input("\nEnter Delta15Nc value: ")
+                    tp = input("\nEnter TP value: ")
+                    c_n = input("\nEnter C:N value: ")
+                    astax = input("\nEnter Astaxanthin(mg/kg) value: ")
+                    canthax = input("\nEnter Canthaxanthin(mg/kg) value: ")
+                    retinol = input("\nEnter Retinol(mg/kg) value: ")
+                    
+                    updated_prey = Prey(year, species, common_name, study_site, ass_community, lat, longi, delta13c, delta13c_c, 
+                                    delta15n, delta15Nc, tp, c_n, astax, canthax, retinol)
+                    self.prey_service.update_row(updated_prey)
+                    
+                except Exception as e:
+                    input("Invalid row number. Press enter to return to menu.")
+                    continue
                 pass
             elif choice == '7': #Delete a record
                 select_row = int(input("Enter row to delete: "))
