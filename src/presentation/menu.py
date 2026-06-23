@@ -82,8 +82,29 @@ class Menu:
                     print("Row", count, prey)
                 
             elif choice == '5': #Create new record
-                #TODO 
-                pass
+                #,Canthaxanthin(mg/kg),
+                print("Creating new record.\n")
+                year = input("Enter Year: ")
+                species = input("Enter Species: ")
+                common_name = input("Enter Common Name: ")
+                study_site = input("Enter Study Site: ")
+                ass_community = input("Enter Associate Community: ")
+                lat = input("Enter Latitude: ")
+                longi = input("Eneter Longitude: ")
+                delta13c = input("Enter Delta13C value: ")
+                delta13c_c = input("Enter Delta13Cc value: ")
+                delta15n = input("Enter Delta15N value: ")
+                delta15Nc = input("Enter Delta15Nc value: ")
+                tp = input("Enter TP value: ")
+                c_n = input("Enter C:N value: ")
+                astax = input("Enter Astaxanthin(mg/kg) value: ")
+                canthax = input("Enter Canthaxanthin(mg/kg) value: ")
+                retinol = input("Enter Retinol(mg/kg) value: ")
+                
+                new_prey = Prey(year, species, common_name, study_site, ass_community, lat, longi, delta13c, delta13c_c, 
+                                delta15n, delta15Nc, tp, c_n, astax, canthax, retinol)
+                self.prey_service.create_row(new_prey)
+            
             elif choice == '6':#Edit a record
                 #TODO 
                 pass
