@@ -83,6 +83,7 @@ class Menu:
                 for prey in print_rows:
                     print("Row", count, prey)
                     count += 1
+                    print("Program created by: Elairis Morrow")
                 
             elif choice == '5': #Create new record
                 print("Creating new record:")
