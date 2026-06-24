@@ -70,8 +70,9 @@ class Menu:
                 
             elif choice == '3': #Display single record
                 select_row = int(input("Enter row to display: "))
+                actual_row = int(select_row) - 1
                 try:
-                    print_row = self.prey_service.get_row(select_row)
+                    print_row = self.prey_service.get_row(actual_row)
                     print("Row", select_row, print_row)
                 except Exception as e:
                     input("Invalid row number. Press enter to return to menu.")
@@ -140,8 +141,9 @@ class Menu:
                 
             elif choice == '7': #Delete a record
                 select_row = int(input("Enter row to delete: "))
+                actual_row = int(select_row) - 1
                 try:
-                    self.prey_service.delete_row(select_row)
+                    self.prey_service.delete_row(actual_row)
                 except Exception as e:
                     input("Invalid row number. Press enter to return to menu.")
                     continue
