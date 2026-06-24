@@ -83,7 +83,7 @@ class Menu:
                 for prey in print_rows:
                     print("Row", count, prey)
                     count += 1
-                    
+                print("Program created by: Elairis Morrow")
             elif choice == '5': #Create new record
                 print("Creating new record:")
                 year = input("\nEnter Year: ")
@@ -106,7 +106,6 @@ class Menu:
                 new_prey = Prey(year, species, common_name, study_site, ass_community, lat, longi, delta13c, delta13c_c, 
                                 delta15n, delta15Nc, tp, c_n, astax, canthax, retinol)
                 self.prey_service.create_row(new_prey)
-                print("Program created by: Elairis Morrow")
             
             elif choice == '6':#Edit a record
                 #TODO 
