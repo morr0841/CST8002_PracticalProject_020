@@ -13,7 +13,7 @@ References used:
 #TODO update this with new sources before submitting
 [1] 
 """
-from presentation.menu import Menu
+from src.presentation.menu import Menu
 
 class Main:
   def main(self):
