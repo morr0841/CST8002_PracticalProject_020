@@ -65,7 +65,8 @@ class Menu:
         print("5 Create new record")
         print("6 Edit a record")
         print("7 Delete a record")
-        print("8 Exit program")
+        print("8 Sort list by species")
+        print("9 Exit program")
 
 
 
@@ -165,9 +166,12 @@ class Menu:
                 except Exception as e:
                     input("Invalid row number. Press enter to return to menu.")
                     continue
-            elif choice == '8': #Exit the program
+            elif choice == '8': #Sort rows by species
+                    self.prey_service.sort_rows()
+                    print("Sorted rows by species.")
+            elif choice == '9': #Exit the program
                 print("Exiting program.")
                 break
             else:
-                print("Invalid choice. Please select 1-8.")
+                print("Invalid choice. Please select 1-9.")
             input("\nPress enter to return to menu.")
