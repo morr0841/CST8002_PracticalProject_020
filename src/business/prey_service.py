@@ -65,6 +65,10 @@ class Prey_Service:
         """Replaces an existing record with updated data."""
         self.all_rows[row_number] = updated_prey
 
+    def sort_rows(self):
+        """Sorts the rows according to species."""
+        self.all_rows.sort(key=lambda prey: prey.species)
+
     def delete_row(self, row_number):
         """Removes a record from the in-memory list."""
         del self.all_rows[row_number]
