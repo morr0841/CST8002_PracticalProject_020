@@ -79,7 +79,7 @@ class Menu:
         while True:
             self.clear_screen()
             self.display_menu()
-            choice = input("\nEnter your choice(1-8): ")
+            choice = input("\nEnter your choice(1-9): ")
 
             if choice == '1': #Reloads the dataset from a CSV file
                 self.prey_service.load_rows()
