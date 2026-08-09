@@ -24,7 +24,7 @@ References used:
 "Contains information licensed under the Open Government Licence – Canada."
 https://open.canada.ca/en/open-government-licence-canada
 """
-
+import operator
 from src.persistence.csv_rw import CsvRW
 
 class Prey_Service:
@@ -59,9 +59,9 @@ class Prey_Service:
         """Replaces an existing record with updated data."""
         self.all_rows[row_number] = updated_prey
 
-    def sort_rows(self):
-        """Sorts the rows according to species."""
-        self.all_rows.sort(key=lambda prey: prey.species)
+    def sort_rows(self, sort_columns):
+        """Sorts the rows according to user selections."""
+        self.all_rows.sort(key=operator.attrgetter(*sort_columns))
 
     def delete_row(self, row_number):
         """Removes a record from the in-memory list."""

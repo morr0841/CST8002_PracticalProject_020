@@ -1,2 +1,4 @@
 *.pyc
 /src/model/__pycache__
+/.vscode
+/SavedCSVs
