@@ -82,26 +82,38 @@ class Menu:
             "15": "canthax",
             "16": "retinol"
         }
-        print("Column Numbers")
-        print("1: Year")
-        print("2: Species")
-        print("3: Common Name")
-        print("4: Study Site")
-        print("5: Associated Community")
-        print("6: Latitude")
-        print("7: Longitude")
-        print("8: delta13C")
-        print("9: delta13Cc")
-        print("10: delta15N")
-        print("11: delta15Nc")
-        print("12: TP")
-        print("13: C:N")
-        print("14: Astaxanthin")
-        print("15: Canthaxanthin")
-        print("16: Retinol")
-        choice = input("Enter column number: ")
+        print("Choose column number to sort on:")
+        print(" 1 - Year")
+        print(" 2 - Species")
+        print(" 3 - Common Name")
+        print(" 4 - Study Site")
+        print(" 5 - Associated Community")
+        print(" 6 - Latitude")
+        print(" 7 - Longitude")
+        print(" 8 - Delta13C")
+        print(" 9 - Delta13Cc")
+        print("10 - Delta15N")
+        print("11 - Delta15Nc")
+        print("12 - TP")
+        print("13 - C:N")
+        print("14 - Astaxanthin")
+        print("15 - Canthaxanthin")
+        print("16 - Retinol")
+        choice = input("Enter selection: ")
         return columns[choice]
 
+    def continue_choice(self, message):
+        """Helper function. Gets y/n from user to continue column choice selection."""
+        while True:
+            choice = input(message).lower()
+            
+            if choice == "y":
+                return True
+            if choice == "n":
+                return False
+            
+            print("Please try again. Enter \"y\" for YES and \"n\" for NO")
+    
     def run(self):
         """
         Runs the menu.
@@ -202,16 +214,14 @@ class Menu:
                 sort_columns = []
                 sort_column1 = self.column_choices()
                 sort_columns.append(sort_column1)
-                second_choice = input("Would you like to add a second sort column? (y/n): ")
-                if second_choice.lower() == "y":
+                self.clear_screen()
+                if self.continue_choice("Would you like to add a second sort column? (y/n): "):
                     sort_column2 = self.column_choices()
                     sort_columns.append(sort_column2)
-                    third_choice = input("Would you like to add a third sort column? (y/n): ")
-                    if third_choice.lower() == "y":
+                    if self.continue_choice("Would you like to add a third sort column? (y/n): "):
                         sort_column3 = self.column_choices()
                         sort_columns.append(sort_column3)
                 self.prey_service.sort_rows(sort_columns)
-                #print("Sorted rows by species.")
             elif choice == '9': #Exit the program
                 print("Exiting program.")
                 break
