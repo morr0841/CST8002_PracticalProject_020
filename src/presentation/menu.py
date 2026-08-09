@@ -62,7 +62,45 @@ class Menu:
         print("8 Sort list by species")
         print("9 Exit program")
 
-
+    def column_choices(self):
+        """Helper function for printing out column names and allowing user to select a column based on a dictionary lookup."""
+        columns = {
+            "1": "year",
+            "2": "species",
+            "3": "common_name",
+            "4": "study_site",
+            "5": "ass_community",
+            "6": "lat",
+            "7": "longi",
+            "8": "delta13c",
+            "9": "delta13c_c",
+            "10": "delta15n",
+            "11": "delta15nc",
+            "12": "tp",
+            "13": "c_n",
+            "14": "astax",
+            "15": "canthax",
+            "16": "retinol"
+        }
+        print("Column Numbers")
+        print("1: Year")
+        print("2: Species")
+        print("3: Common Name")
+        print("4: Study Site")
+        print("5: Associated Community")
+        print("6: Latitude")
+        print("7: Longitude")
+        print("8: delta13C")
+        print("9: delta13Cc")
+        print("10: delta15N")
+        print("11: delta15Nc")
+        print("12: TP")
+        print("13: C:N")
+        print("14: Astaxanthin")
+        print("15: Canthaxanthin")
+        print("16: Retinol")
+        choice = input("Enter column number: ")
+        return columns[choice]
 
     def run(self):
         """
@@ -160,9 +198,20 @@ class Menu:
                 except Exception as e:
                     input("Invalid row number. Press enter to return to menu.")
                     continue
-            elif choice == '8': #Sort rows by species
-                    self.prey_service.sort_rows()
-                    print("Sorted rows by species.")
+            elif choice == '8': #Sort rows by user choice
+                sort_columns = []
+                sort_column1 = self.column_choices()
+                sort_columns.append(sort_column1)
+                second_choice = input("Would you like to add a second sort column? (y/n): ")
+                if second_choice.lower() == "y":
+                    sort_column2 = self.column_choices()
+                    sort_columns.append(sort_column2)
+                    third_choice = input("Would you like to add a third sort column? (y/n): ")
+                    if third_choice.lower() == "y":
+                        sort_column3 = self.column_choices()
+                        sort_columns.append(sort_column3)
+                self.prey_service.sort_rows(sort_columns)
+                #print("Sorted rows by species.")
             elif choice == '9': #Exit the program
                 print("Exiting program.")
                 break
