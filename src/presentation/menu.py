@@ -62,7 +62,7 @@ class Menu:
         print("8 Sort list by species")
         print("9 Exit program")
 
-    def column_choices(self):
+    def column_choices(self, sort_columns):
         """Helper function for printing out column names and allowing user to select a column based on a dictionary lookup."""
         columns = {
             "1": "year",
@@ -82,25 +82,61 @@ class Menu:
             "15": "canthax",
             "16": "retinol"
         }
-        print("Choose column number to sort on:")
-        print(" 1 - Year")
-        print(" 2 - Species")
-        print(" 3 - Common Name")
-        print(" 4 - Study Site")
-        print(" 5 - Associated Community")
-        print(" 6 - Latitude")
-        print(" 7 - Longitude")
-        print(" 8 - Delta13C")
-        print(" 9 - Delta13Cc")
-        print("10 - Delta15N")
-        print("11 - Delta15Nc")
-        print("12 - TP")
-        print("13 - C:N")
-        print("14 - Astaxanthin")
-        print("15 - Canthaxanthin")
-        print("16 - Retinol")
-        choice = input("Enter selection: ")
-        return columns[choice]
+        
+        column_names = {
+            "year": "Year",
+            "species": "Species",
+            "common_name": "Common Name",
+            "study_site": "Study Site",
+            "ass_community": "Associated Community",
+            "lat": "Latitude",
+            "longi": "Longitude",
+            "delta13c": "Delta13C",
+            "delta13c_c": "Delta13Cc",
+            "delta15n": "Delta15N",
+            "delta15nc": "Delta15Nc",
+            "tp": "TP",
+            "c_n": "C:N",
+            "astax": "Astaxanthin",
+            "canthax": "Canthaxanthin",
+            "retinol": "Retinol"
+        }
+        
+        while True:
+            self.clear_screen()
+            print("Choose column number to sort on:")
+            print(" 1 - Year")
+            print(" 2 - Species")
+            print(" 3 - Common Name")
+            print(" 4 - Study Site")
+            print(" 5 - Associated Community")
+            print(" 6 - Latitude")
+            print(" 7 - Longitude")
+            print(" 8 - Delta13C")
+            print(" 9 - Delta13Cc")
+            print("10 - Delta15N")
+            print("11 - Delta15Nc")
+            print("12 - TP")
+            print("13 - C:N")
+            print("14 - Astaxanthin")
+            print("15 - Canthaxanthin")
+            print("16 - Retinol")
+            
+            if sort_columns:
+                print("\nColumns already chosen:")
+                for column in sort_columns:
+                    print(column_names[column])
+
+            choice = input("\nEnter selection: ")
+            
+            if choice in columns:
+                selected_column = columns[choice]
+                if selected_column in sort_columns:
+                    input("You have already selected that column. Press enter to make a different selection.")
+                else:
+                    return selected_column
+            else:
+                input("Invalid selection. Press enter and input a number between 1-16.")
 
     def continue_choice(self, message):
         """Helper function. Gets y/n from user to continue column choice selection."""
@@ -212,14 +248,13 @@ class Menu:
                     continue
             elif choice == '8': #Sort rows by user choice
                 sort_columns = []
-                sort_column1 = self.column_choices()
+                sort_column1 = self.column_choices(sort_columns)
                 sort_columns.append(sort_column1)
-                self.clear_screen()
                 if self.continue_choice("Would you like to add a second sort column? (y/n): "):
-                    sort_column2 = self.column_choices()
+                    sort_column2 = self.column_choices(sort_columns)
                     sort_columns.append(sort_column2)
                     if self.continue_choice("Would you like to add a third sort column? (y/n): "):
-                        sort_column3 = self.column_choices()
+                        sort_column3 = self.column_choices(sort_columns)
                         sort_columns.append(sort_column3)
                 self.prey_service.sort_rows(sort_columns)
             elif choice == '9': #Exit the program
