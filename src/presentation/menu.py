@@ -59,7 +59,7 @@ class Menu:
         print("5 Create new record")
         print("6 Edit a record")
         print("7 Delete a record")
-        print("8 Sort list by species")
+        print("8 Sort records")
         print("9 Exit program")
 
     def column_choices(self, sort_columns):
