@@ -1,5 +1,5 @@
 """
-Persistence layer for Practical Project 2. 
+Persistence layer for Practical Project 4. 
 
 Description: This file handles reading and writing CSV files for the application. Records are converted between CSV rows 
 and Prey DTO objects. New CSV files are saved using UUID-generated filenames to prevent existing files from being overwritten.
